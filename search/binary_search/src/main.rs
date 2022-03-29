@@ -9,12 +9,14 @@ fn main() {
 fn merge_array_median(mut nums1: Vec<i32>, mut nums2: Vec<i32>) -> f64 {
     let mut merged_arr: Vec<i32> = Vec::new();
     if nums1.len() > nums2.len() {
+        nums1.sort();
         let mut nums2_iter = nums2.iter();
         while nums2_iter.next() != None {
             let merged_arr = binary_search_insert(&mut nums1, &nums2_iter.next().unwrap());    
         }
     }
     else {
+        nums2.sort();
         let mut nums1_iter = nums1.iter();
         while nums1_iter.next() != None {
             let merged_arr = binary_search_insert(&mut nums2, &nums1_iter.next().unwrap());
